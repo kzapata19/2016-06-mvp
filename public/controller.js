@@ -6,6 +6,10 @@ myApp.controller('myCtrl',['$scope', '$http', function($scope, $http){
 $http.get('/addressList').success(function(response){
   console.log("controller receieved data requested from server");
   $scope.addressList = response;
-})
+});
+
+$scope.addPerson = function(){
+
+};
 
 }]);

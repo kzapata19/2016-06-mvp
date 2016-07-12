@@ -13,9 +13,17 @@
           <th>Phone Number</th>
           <th>Email</th>
           <th>Facebook</th>
+          <th>Add Person</th>
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td><input ng-model="contact.name"></td>
+          <td><input ng-model="contact.phoneNum"></td>
+          <td><input ng-model="contact.email"></td>
+          <td><input ng-model="contact.facebook"></td>
+          <td><button ng-click="addPerson()">Add Person</button></td>
+        </tr>
         <tr ng-repeat="entry in addressList">
           <td>{{entry.name}}</td>
           <td>{{entry.phoneNum}}</td>
