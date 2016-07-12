@@ -15,7 +15,10 @@ app.get('/addressList', function(req, res){
 });
 
 app.post('/addressList', function(req, res){ //listen for POST request from controller
-  console.log(req.body)
+  console.log(req.body);
+  db.addressList.insert(req.body, function(err, entry){ //insert data into db
+    res.json(entry); //send data back to controller
+  })
 });
 
 app.listen(3000);

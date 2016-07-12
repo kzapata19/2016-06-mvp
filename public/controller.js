@@ -3,13 +3,23 @@ var myApp = angular.module('myApp', []);
 myApp.controller('myCtrl',['$scope', '$http', function($scope, $http){
   console.log("this is coming from controller.js");
 
-$http.get('/addressList').success(function(response){
-  console.log("controller receieved data requested from server");
-  $scope.addressList = response;
-});
+var updateList = function(){
+  $http.get('/addressList').success(function(response){
+    console.log("controller receieved data requested from server");
+    $scope.addressList = response;
+    $scope.contact = ''; //clear input after fx called below
+  });
+}
 
-$scope.addPerson = function(){ //receive data from input
-  $http.post('/addressList', $scope.contact); //send input data to server
+updateList();
+
+//receive data from input
+$scope.addPerson = function(){
+  //send input data to server
+  $http.post('/addressList', $scope.contact)
+  .success(function(response){
+    console.log(response)//will print response received
+  })
 };
 
 }]);
