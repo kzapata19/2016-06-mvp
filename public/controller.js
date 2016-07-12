@@ -3,6 +3,8 @@ var myApp = angular.module('myApp', []);
 myApp.controller('myCtrl',['$scope', '$http', function($scope, $http){
   console.log("this is coming from controller.js");
 
+$http.get('/addressList');
+
   entry1 = {
     name: "Dora la exploraDora",
     phoneNum: "(323) 555 -1234",
@@ -17,6 +19,6 @@ myApp.controller('myCtrl',['$scope', '$http', function($scope, $http){
     facebook: "www.facebook.com/swipey"
   };
 
-  var addressList = [entry1, entry2]
+  var addressList = [entry1, entry2];
   $scope.addressList = addressList;
 }]);
