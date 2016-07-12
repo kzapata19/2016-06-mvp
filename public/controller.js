@@ -25,7 +25,9 @@ $scope.addPerson = function(){
 
 $scope.deletePerson = function(contactID){
   console.log(contactID);
-  $http.delete('/addressList/' + contactID);
+  $http.delete('/addressList/' + contactID).success(function(response){
+    updateList();
+  })
 };
 
 }]);

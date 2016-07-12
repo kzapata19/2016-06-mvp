@@ -24,6 +24,9 @@ app.post('/addressList', function(req, res){ //listen for POST request from cont
 app.delete('/addressList/:id', function(req, res){
   var id = req.params.id //get the value of the id from url
   console.log("id coming from server.js: " + id);
+  db.addressList.remove({_id: mongojs.ObjectId(id)}, function(err, entry){
+    res.json(entry);
+  });
 });
 
 app.listen(3000);
