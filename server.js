@@ -2,8 +2,10 @@ var express = require('express'); //require the express module
 var app = express(); //alows us to use express methods
 var mongojs = require('mongojs');
 var db = mongojs('addressList', ['addressList']); //db and collection
+var parseBody = require('body-parser');
 
 app.use(express.static(__dirname + '/public')) //place html (static file) inside this directory
+app.use(parseBody.json());
 app.get('/addressList', function(req, res){
   console.log("server received GET request from controller");
   db.addressList.find(function(err, docs){
@@ -11,5 +13,10 @@ app.get('/addressList', function(req, res){
     res.json(docs); //send data to controller
   })
 });
+
+app.post('/addressList', function(req, res){ //listen for POST request from controller
+  console.log(req.body)
+});
+
 app.listen(3000);
 console.log("port 3000");

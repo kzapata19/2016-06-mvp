@@ -8,8 +8,8 @@ $http.get('/addressList').success(function(response){
   $scope.addressList = response;
 });
 
-$scope.addPerson = function(){
-
+$scope.addPerson = function(){ //receive data from input
+  $http.post('/addressList', $scope.contact); //send input data to server
 };
 
 }]);
