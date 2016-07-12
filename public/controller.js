@@ -23,8 +23,9 @@ $scope.addPerson = function(){
   });
 };
 
-$scope.deletePerson = function(id){
-  console.log(id);
+$scope.deletePerson = function(contactID){
+  console.log(contactID);
+  $http.delete('/addressList/' + contactID);
 };
 
 }]);
