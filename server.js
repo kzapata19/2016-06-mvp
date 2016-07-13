@@ -1,3 +1,5 @@
+
+var port = process.env.PORT || 3000;
 var express = require('express'); //require the express module
 var app = express(); //alows us to use express methods
 var mongojs = require('mongojs');
@@ -48,5 +50,5 @@ app.put('/addressList/:id', function(req, res){
     });
 });
 
-app.listen(3000);
-console.log("port 3000");
+app.listen(port);
+console.log(port);
