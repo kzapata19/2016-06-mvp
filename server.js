@@ -29,5 +29,24 @@ app.delete('/addressList/:id', function(req, res){
   });
 });
 
+app.get('/addressList/:id', function(req, res){
+  var id = req.params.id //get the value of the id from url
+  console.log("id coming from server.js: " + id);
+  //find one specific person from db
+  db.addressList.findOne({_id: mongojs.ObjectId(id)}, function(err, entry){
+    res.json(entry);
+  })
+})
+
+app.put('/addressList/:id', function(req, res){
+  var id = req.params.id;
+  console.log(req.body.name);
+  db.addressList.findAndModify({query: {_id: mongojs.ObjectId(id)}, //contact that will be modified
+    update: {$set: {name: req.body.name, phoneNum: req.body.phoneNum, email: req.body.email, facebook: req.body.facebook}},
+    new: true}, function(err, entry){
+      res.json(entry);
+    });
+});
+
 app.listen(3000);
 console.log("port 3000");

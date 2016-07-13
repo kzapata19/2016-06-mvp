@@ -23,13 +23,15 @@
           <td><input ng-model="contact.email"></td>
           <td><input ng-model="contact.facebook"></td>
           <td><button ng-click="addPerson()">Add Person</button></td>
+          <td><button ng-click="update()">Edit Entry</button></td>
         </tr>
-        <tr ng-repeat="entry in addressList">
-          <td>{{entry.name}}</td>
-          <td>{{entry.phoneNum}}</td>
-          <td>{{entry.email}}</td>
-          <td>{{entry.facebook}}</td>
-          <td><button ng-click="deletePerson(entry._id)">Delete</button></td>
+        <tr ng-repeat="contact in addressList">
+          <td>{{contact.name}}</td>
+          <td>{{contact.phoneNum}}</td>
+          <td>{{contact.email}}</td>
+          <td>{{contact.facebook}}</td>
+          <td><button ng-click="deletePerson(contact._id)">Delete</button></td>
+          <td><button ng-click="editEntry(contact._id)">Edit</button></td>
         </tr>
       </tbody>
     </table>

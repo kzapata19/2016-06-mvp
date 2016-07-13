@@ -30,4 +30,18 @@ $scope.deletePerson = function(contactID){
   })
 };
 
+$scope.editEntry = function(contactID){
+  console.log(contactID);
+  $http.get('/addressList/' + contactID).success(function(response){
+    $scope.contact = response; //put response in respect ng-model boxes
+  });
+};
+
+$scope.update = function(){
+  console.log($scope.contact._id); //will put content of contact's info inside the input boxes};
+    $http.put('/addressList/' + $scope.contact._id, $scope.contact).success(function(response){
+      updateList();
+    })
+};
+
 }]);
