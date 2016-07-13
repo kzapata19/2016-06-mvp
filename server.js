@@ -3,7 +3,8 @@ var port = process.env.PORT || 3000;
 var express = require('express'); //require the express module
 var app = express(); //alows us to use express methods
 var mongojs = require('mongojs');
-var db = mongojs('addressList', ['addressList']); //db and collection
+var mongoURI = process.env.MONGODB_URI || 'addressList';
+var db = mongojs(mongoURI, ['addressList']); //db and collection
 var parseBody = require('body-parser');
 
 app.use(express.static(__dirname + '/public')) //place html (static file) inside this directory
