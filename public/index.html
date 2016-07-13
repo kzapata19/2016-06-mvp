@@ -23,7 +23,7 @@
           <td><input ng-model="contact.email"></td>
           <td><input ng-model="contact.facebook"></td>
           <td><button ng-click="addPerson()">Add Person</button></td>
-          <td><button ng-click="update()">Edit Entry</button></td>
+          <td><button ng-click="update()">Edit Entry</button>&nbsp;<button ng-click="clear()">Clear</button></td>
         </tr>
         <tr ng-repeat="contact in addressList">
           <td>{{contact.name}}</td>

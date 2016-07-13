@@ -44,4 +44,7 @@ $scope.update = function(){
     })
 };
 
+$scope.clear = function(){
+  $scope.contact = "";
+}
 }]);
